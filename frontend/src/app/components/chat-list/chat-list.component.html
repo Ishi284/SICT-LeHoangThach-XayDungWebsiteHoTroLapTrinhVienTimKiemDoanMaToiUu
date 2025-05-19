@@ -1,0 +1,22 @@
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mt-2">Tạo phiên tìm kiếm mới</h5>
+    </div>
+    <div class="card-body">
+        <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="newChatTitle" placeholder="Tiêu đề phiên tìm kiếm" />
+            <button class="btn btn-primary" (click)="createChat()">Tạo mới</button>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-3" *ngFor="let chat of chats.slice().reverse()">
+    <div class="card-body">
+        <h5 class="card-title">{{ chat.title }}</h5>
+        <p class="card-text">Thời gian tạo: {{ chat.created_at | date:'medium' }}</p>
+        <div class="d-flex gap-2">
+            <a class="btn btn-primary btn-sm fw-bold" [routerLink]="['/chat', chat._id]">Xem</a>
+            <button class="btn btn-danger btn-sm fw-bold" (click)="deleteChat(chat._id)">Xóa</button>
+        </div>
+    </div>
+</div>

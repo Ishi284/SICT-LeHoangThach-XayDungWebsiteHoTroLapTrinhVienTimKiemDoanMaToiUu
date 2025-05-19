@@ -1,0 +1,23 @@
+body {
+  padding-top: 70px;
+  background-color: #FAF9F5 !important;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary {
+  background-color: #C96442 !important;
+  border-color: #C96442 !important;
+}
+
+.bg-primary {
+  background-color: #C96442 !important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #C96442 !important;
+}

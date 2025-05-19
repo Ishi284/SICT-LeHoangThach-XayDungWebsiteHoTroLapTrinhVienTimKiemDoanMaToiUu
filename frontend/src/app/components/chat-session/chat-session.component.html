@@ -1,0 +1,30 @@
+<div class="card mb-4" *ngIf="chat">
+    <div class="card-header">
+        <h5 class="mt-2">{{ chat.title }}</h5>
+    </div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <select class="form-select" [(ngModel)]="newMessage.language">
+                <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+            </select>
+            <input type="text" class="form-control w-50" [(ngModel)]="newMessage.message"
+                placeholder="Nhập mô tả của bạn" />
+            <button class="btn btn-primary" (click)="sendMessage()">Tìm kiếm</button>
+        </div>
+
+        <div class="mt-4" *ngFor="let message of chat.messages.slice().reverse()">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p><strong>Mô tả:</strong> {{ message.message }}</p>
+                    <p><strong>Ngôn ngữ:</strong> {{ message.language }}</p>
+                    <p><strong>Thời gian:</strong> {{ message.timestamp | date:'medium' }}</p>
+                    <h6>Kết quả tìm kiếm:</h6>
+                    <div *ngFor="let result of message.results">
+                        <pre class="bg-light p-3 rounded"><code>{{ result.code }}</code></pre>
+                        <p>Độ tương đồng: {{ result.similarity | number:'1.2-2' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
